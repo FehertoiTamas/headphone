@@ -2,6 +2,7 @@ import React from "react";
 import { MdMenu } from "react-icons/md";
 import { SlEarphones } from "react-icons/sl";
 import { UpdateFollower } from "react-mouse-follower";
+import { motion } from "framer-motion";
 
 const NavbarMenu = [
   {
@@ -36,7 +37,12 @@ const Navbar = () => {
   return (
     <>
       <div className="bg-brandDark text-white py-6 font-varela">
-        <nav className="container flex justify-between items-center">
+        <motion.nav
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="container flex justify-between items-center"
+        >
           {/*_____ Logo section _____ */}
           <div>
             <a href="#" className="text-xl font-bold uppercase">
@@ -86,7 +92,7 @@ const Navbar = () => {
           <div className="md:hidden">
             <MdMenu className="text-4xl" />
           </div>
-        </nav>
+        </motion.nav>
       </div>
     </>
   );

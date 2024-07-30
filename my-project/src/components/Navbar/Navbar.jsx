@@ -1,4 +1,6 @@
 import React from "react";
+import { MdMenu } from "react-icons/md";
+import { SlEarphones } from "react-icons/sl";
 
 const NavbarMenu = [
   {
@@ -31,26 +33,41 @@ const NavbarMenu = [
 
 const Navbar = () => {
   return (
-    <nav>
-      {/*_____ Logo section _____ */}
-      <div>
-        <a href="#">
-          Playing/ <span>Market</span>
-        </a>
+    <>
+      <div className="bg-brandDark text-white py-6 font-varela">
+        <nav className="container flex justify-between items-center">
+          {/*_____ Logo section _____ */}
+          <div>
+            <a href="#" className="text-xl font-bold uppercase">
+              Playing/
+              <span className="font-extralight text-white70">Market</span>
+            </a>
+          </div>
+          {/*_____ Menu section _____ */}
+          <div className="hidden md:block">
+            <ul className="flex items-center gap-4">
+              {NavbarMenu.map((item) => (
+                <li key={item.id}>
+                  <a
+                    href={item.link}
+                    className="inline-block text-sm py-2 px-3 uppercase"
+                  >
+                    {item.title}
+                  </a>
+                </li>
+              ))}
+              <button className="text-xl ps-14">
+                <SlEarphones />
+              </button>
+            </ul>
+          </div>
+          {/*_____ Mobil Hamburger section _____ */}
+          <div className="md:hidden">
+            <MdMenu className="text-4xl" />
+          </div>
+        </nav>
       </div>
-      {/*_____ Menu section _____ */}
-      <div>
-        <ul>
-          {NavbarMenu.map((item) => (
-            <li key={item.id}>
-              <a href={item.link}>{item.title}</a>
-            </li>
-          ))}
-        </ul>
-      </div>
-      {/*_____ Mobil Hamburger section _____ */}
-      <div></div>
-    </nav>
+    </>
   );
 };
 

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Headphone from "../../assets/headphone.png";
 import Headphone2 from "../../assets/headphone2.png";
 import Headphone3 from "../../assets/headphone3.png";
-import Headphone4 from "../../assets/headphone4.png";
+import { FaWhatsapp } from "react-icons/fa";
 
 const headphoneData = [
   {
@@ -42,9 +42,9 @@ const Hero = () => {
   return (
     <>
       <section className="bg-brandDark text-white font-varela">
-        <div className="container grid grid-cols-2 md:grid-cols-1 min-h-[700px]">
+        <div className="container grid grid-cols-2 md:grid-cols-2 min-h-[700px]">
           {/*_____ Headphone info _____*/}
-          <div className="flex flex-col justify-center py-14 md:py-0 xl:max:-w-[500px]">
+          <div className="flex flex-col justify-center py-14 md:py-0 xl:max-w-[500px]">
             <div className="space-y-4 text-center md:text-left">
               <h1 className="text-3xl lg:text-6xl font-bold font-varela">
                 {activeData.title}
@@ -69,7 +69,7 @@ const Hero = () => {
               <div className="grid grid-cols-3 gap-10">
                 {headphoneData.map((item) => {
                   return (
-                    <div className="grid grid-col2 place-items-center cursor-pointer">
+                    <div className="grid grid-cols2 place-items-center cursor-pointer">
                       <div>
                         <img src={item.image} alt="" className="w-[200px]" />
                       </div>
@@ -87,7 +87,19 @@ const Hero = () => {
           </div>
 
           {/*_____ Hero image _____*/}
+          <div className="flex flex-col justify-end items-center">
+            <img
+              src={activeData.image}
+              alt=""
+              className="w-[300px] md:w-[400px] xl:w-[550px]"
+            />
+          </div>
           {/*_____ WhatsApp Icon _____*/}
+          <div>
+            <a href="">
+              <FaWhatsapp className="text-3xl text-white fixed bottom-10 right-10 hover:rotate-[360deg] duration-500 z-[9999]" />
+            </a>
+          </div>
         </div>
       </section>
     </>

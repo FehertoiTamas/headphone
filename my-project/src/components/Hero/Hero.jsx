@@ -95,9 +95,9 @@ const Hero = () => {
             />
           </div>
           {/*_____ WhatsApp Icon _____*/}
-          <div>
+          <div className="text-3xl text-white fixed bottom-10 right-10 hover:rotate-[360deg] duration-500 z-[9999] mix-blend-difference">
             <a href="">
-              <FaWhatsapp className="text-3xl text-white fixed bottom-10 right-10 hover:rotate-[360deg] duration-500 z-[9999]" />
+              <FaWhatsapp />
             </a>
           </div>
         </div>

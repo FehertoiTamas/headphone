@@ -3,6 +3,37 @@ import Headphone from "../../assets/headphone.png";
 import Headphone2 from "../../assets/headphone2.png";
 import Headphone3 from "../../assets/headphone3.png";
 import { FaWhatsapp } from "react-icons/fa";
+import { UpdateFollower } from "react-mouse-follower";
+import { AnimatePresence, easeInOut, motion } from "framer-motion";
+
+const fadeUp = (delay) => {
+  return {
+    hidden: {
+      opacity: 0,
+      y: 100,
+      scale: 0.5,
+    },
+    show: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        delay: delay,
+        ease: easeInOut,
+      },
+    },
+    exit: {
+      opacity: 0,
+      y: 50,
+      scale: 0.5,
+      transation: {
+        duration: 0.2,
+        ease: easeInOut,
+      },
+    },
+  };
+};
 
 const headphoneData = [
   {
@@ -51,9 +82,29 @@ const Hero = () => {
           {/*_____ Headphone info _____*/}
           <div className="flex flex-col justify-center py-14 md:py-0 xl:max-w-[500px]">
             <div className="space-y-4 text-center md:text-left">
-              <h1 className="text-3xl lg:text-6xl font-bold font-varela">
-                {activeData.title}
-              </h1>
+              <AnimatePresence mode="wait">
+                <UpdateFollower
+                  mouseOptions={{
+                    backgroundColor: "white",
+                    zIndex: 9999,
+                    followSpeed: 0.5,
+                    rotate: -720,
+                    mixBlendMode: "difference",
+                    scale: 10,
+                  }}
+                >
+                  <motion.h1
+                    key={activeData.id}
+                    variants={fadeUp(0.2)}
+                    initial="hidden"
+                    animate="show"
+                    exit="exit"
+                    className="text-3xl lg:text-6xl font-bold font-varela"
+                  >
+                    {activeData.title}
+                  </motion.h1>
+                </UpdateFollower>
+              </AnimatePresence>
               <p className="text-sm leading-loose text-white/80 ">
                 {activeData.description}
               </p>

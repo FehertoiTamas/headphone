@@ -39,6 +39,11 @@ const headphoneData = [
 
 const Hero = () => {
   const [activeData, setActiveData] = useState(headphoneData[0]);
+
+  const handleActiveData = (data) => {
+    setActiveData(data);
+  };
+
   return (
     <>
       <section className="bg-brandDark text-white font-varela">
@@ -69,7 +74,11 @@ const Hero = () => {
               <div className="grid grid-cols-3 gap-10">
                 {headphoneData.map((item) => {
                   return (
-                    <div className="grid grid-cols2 place-items-center cursor-pointer">
+                    <div
+                      key={item.id}
+                      onClick={() => handleActiveData(item)}
+                      className="grid grid-cols2 place-items-center cursor-pointer"
+                    >
                       <div>
                         <img src={item.image} alt="" className="w-[200px]" />
                       </div>

@@ -105,15 +105,46 @@ const Hero = () => {
                   </motion.h1>
                 </UpdateFollower>
               </AnimatePresence>
-              <p className="text-sm leading-loose text-white/80 ">
-                {activeData.description}
-              </p>
-              <button
-                style={{ backgroundColor: activeData.bgColor }}
-                className="px-4 py-2 inline-block font-normal rounded-sm"
+              <AnimatePresence mode="wait">
+                <motion.p
+                  key={activeData.id}
+                  variants={fadeUp(0.3)}
+                  initial="hidden"
+                  animate="show"
+                  exit="exit"
+                  className="text-sm leading-loose text-white/80 "
+                >
+                  {activeData.description}
+                </motion.p>
+              </AnimatePresence>
+              <UpdateFollower
+                mouseOptions={{
+                  backgroundColor: activeData.bgColor,
+                  zIndex: 9999,
+                  followSpeed: 0.5,
+                  rotate: -720,
+                  scale: 6,
+                  backgroundElement: (
+                    <div>
+                      <img src={activeData.image} />
+                    </div>
+                  ),
+                }}
               >
-                Buy and listen
-              </button>
+                <AnimatePresence mode="wait">
+                  <motion.button
+                    key={activeData.id}
+                    variants={fadeUp(0.3)}
+                    initial="hidden"
+                    animate="show"
+                    exit="exit"
+                    style={{ backgroundColor: activeData.bgColor }}
+                    className="px-4 py-2 inline-block font-normal rounded-sm"
+                  >
+                    Buy and listen
+                  </motion.button>
+                </AnimatePresence>
+              </UpdateFollower>
               {/*_____ Headphone list separator _____*/}
               <div className="flex items-center justify-center md:justify-start gap-4 !mt-24">
                 <div className="w-20 h-[1px] bg-white"></div>
@@ -148,11 +179,25 @@ const Hero = () => {
 
           {/*_____ Hero image _____*/}
           <div className="flex flex-col justify-end items-center">
-            <img
-              src={activeData.image}
-              alt=""
-              className="w-[300px] md:w-[400px] xl:w-[550px]"
-            />
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={activeData.id}
+                initial={{ opacity: 0, scale: 0.9, y: 100 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.2, ease: easeInOut }}
+                exit={{
+                  opacity: 0,
+                  scale: 1,
+                  y: 100,
+                  transition: {
+                    duration: 0.2,
+                  },
+                }}
+                src={activeData.image}
+                alt=""
+                className="w-[300px] md:w-[400px] xl:w-[550px]"
+              />
+            </AnimatePresence>
           </div>
           {/*_____ WhatsApp Icon _____*/}
           <div className="text-3xl text-white fixed bottom-10 right-10 hover:rotate-[360deg] duration-500 z-[9999] mix-blend-difference">

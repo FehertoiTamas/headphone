@@ -4,6 +4,23 @@ import Icon2 from "../../assets/icons/obj2.png";
 import Icon3 from "../../assets/icons/obj3.png";
 import { UpdateFollower } from "react-mouse-follower";
 
+const fadeUp = (delay) => {
+  return {
+    hidden: {
+      opacity: 0,
+      y: 100,
+    },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        delay: delay,
+      },
+    },
+  };
+};
+
 const ServiceData = [
   {
     id: 1,

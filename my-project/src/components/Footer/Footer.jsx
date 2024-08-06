@@ -68,6 +68,9 @@ const Footer = () => {
               </div>
             </div>
             {/*_____ copyright section _____*/}
+            <p className="text-white text-center mt-8 border-t-2 pt-8">
+              &copy; 2024 . All Rights Reserved
+            </p>
           </div>
         </div>
       </footer>

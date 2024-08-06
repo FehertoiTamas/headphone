@@ -25,6 +25,27 @@ const Footer = () => {
               </div>
             </div>
             {/*_____ Footer Links section _____*/}
+            <div className="space-Y-6">
+              <h1 className="text-3xl font-bold">Quick Links</h1>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <ul className="space-y-2">
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Contact us</li>
+                    <li>Privacy Policy</li>
+                  </ul>
+                </div>
+                <div>
+                  <ul className="space-y-2">
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Contact us</li>
+                    <li>Privacy Policy</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
             {/*_____ Social Links section _____*/}
             {/*_____ copyright section _____*/}
           </div>

@@ -1,6 +1,13 @@
 import React from "react";
-import { FaPhone } from "react-icons/fa";
+import {
+  FaFacebook,
+  FaGoogle,
+  FaInstagram,
+  FaPhone,
+  FaTelegram,
+} from "react-icons/fa";
 import { FaMapLocation } from "react-icons/fa6";
+import Cards from "../../assets/credit-cards.webp";
 
 const Footer = () => {
   return (
@@ -47,6 +54,19 @@ const Footer = () => {
               </div>
             </div>
             {/*_____ Social Links section _____*/}
+            <div className="space-y-6">
+              <h1 className="text-3xl font-bold">Follow</h1>
+              <div className="flex items-center gap-3">
+                <FaFacebook className="text-3xl hover:scale-105 duration-300" />
+                <FaInstagram className="text-3xl hover:scale-105 duration-300" />
+                <FaTelegram className="text-3xl hover:scale-105 duration-300" />
+                <FaGoogle className="text-3xl hover:scale-105 duration-300" />
+              </div>
+              <div className="space-y-2">
+                <p>Payment Methods</p>
+                <img src={Cards} alt="" className="w-[80%]" />
+              </div>
+            </div>
             {/*_____ copyright section _____*/}
           </div>
         </div>
